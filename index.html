@@ -151,7 +151,7 @@
                 <div class="row">
                     <div class="col-lg-4 col-sm-6 mb-4">
                         <div class="portfolio-item">
-                            <a class="portfolio-link" href="https://amplitude.lightning.force.com/lightning/n/Highspot">
+                            <a class="portfolio-link" href="https://amplitude.lightning.force.com/lightning/n/Highspot" onclick="sfLaunch()"> 
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-basketball-ball fa-3x"></i></div>
                                 </div>
@@ -165,7 +165,7 @@
                     </div>
                     <div class="col-lg-4 col-sm-6 mb-4">
                         <div class="portfolio-item">
-                            <a class="portfolio-link" href="https://app.gong.io/library?workspace-id=559618557539077648&folder-id=6292491706483987898">
+                            <a class="portfolio-link" href="https://app.gong.io/library?workspace-id=559618557539077648&folder-id=6292491706483987898" onclick="gongLaunch()">
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-basketball-ball fa-3x"></i></div>
                                 </div>
@@ -179,7 +179,7 @@
                     </div>
                     <div class="col-lg-4 col-sm-6 mb-4">
                         <div class="portfolio-item">
-                            <a class="portfolio-link" href="https://discourse.amplitude.com/">
+                            <a class="portfolio-link" href="https://discourse.amplitude.com/" onclick="disLaunch()">
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-basketball-ball fa-3x"></i></div>
                                 </div>
@@ -193,7 +193,7 @@
                     </div>
                     <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
                         <div class="portfolio-item">
-                            <a class="portfolio-link" href="https://amplitude.okta.com/app/UserHome">
+                            <a class="portfolio-link" href="https://amplitude.okta.com/app/UserHome" onclick="oktaLaunch()">
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-paw fa-3x"></i></div>
                                 </div>
@@ -207,7 +207,7 @@
                     </div>
                     <div class="col-lg-4 col-sm-6">
                         <div class="portfolio-item">
-                            <a class="portfolio-link" href="https://www.expensify.com/expenses">
+                            <a class="portfolio-link" href="https://www.expensify.com/expenses" onclick="exLaunch()">
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-paw fa-3x"></i></div>
                                 </div>
@@ -221,7 +221,7 @@
                     </div>
                     <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
                         <div class="portfolio-item">
-                            <a class="portfolio-link" href="https://amplitude.highspot.com/">
+                            <a class="portfolio-link" href="https://amplitude.highspot.com/" onclick="highLaunch()">
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
@@ -263,5 +263,13 @@
                 $('#response').html(err || JSON.stringify(data));
             });
         });
+    </script>
+    <script type="text/javascript">
+        var sfLaunch = amplitude.getInstance().logEvent('Salesforce Launched');
+        var gongLaunch = amplitude.getInstance().logEvent('Gong Launched');
+        var disLaunch = amplitude.getInstance().logEvent('Discourse Launched');
+        var oktaLaunch = amplitude.getInstance().logEvent('Okta Launched');
+        var exLaunch = amplitude.getInstance().logEvent('Expensify Launched');
+        var highLaunch = amplitude.getInstance().logEvent('Highspot Launched');
     </script>
 </html>
