@@ -179,7 +179,7 @@
                     </div>
                     <div class="col-lg-4 col-sm-6 mb-4">
                         <div class="portfolio-item">
-                            <a class="portfolio-link" href="https://discourse.amplitude.com/" onclick="disLaunch()">
+                            <a class="portfolio-link" href="https://discourse.amplitude.com/" name="discourse" onclick="disLaunch()">
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-basketball-ball fa-3x"></i></div>
                                 </div>
@@ -221,7 +221,7 @@
                     </div>
                     <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
                         <div class="portfolio-item">
-                            <a class="portfolio-link" href="https://amplitude.highspot.com/" onclick="highLaunch()">
+                            <a class="portfolio-link" href="https://amplitude.highspot.com/" onclick="hiLaunch()">
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
@@ -265,11 +265,13 @@
         });
     </script>
     <script type="text/javascript">
-        var sfLaunch = amplitude.getInstance().logEvent('Salesforce Launched');
-        var gongLaunch = amplitude.getInstance().logEvent('Gong Launched');
-        var disLaunch = amplitude.getInstance().logEvent('Discourse Launched');
-        var oktaLaunch = amplitude.getInstance().logEvent('Okta Launched');
-        var exLaunch = amplitude.getInstance().logEvent('Expensify Launched');
-        var highLaunch = amplitude.getInstance().logEvent('Highspot Launched');
+        // Amplitude Event Tracking
+        function sfLaunch() {console.log('Salesforce Launched'); return amplitude.getInstance().logEvent('Salesforce Launched');}
+        function gongLaunch() {console.log('Gong Launched'); return amplitude.getInstance().logEvent('Gong Launched');}
+        function disLaunch() {console.log('Discourse Launched'); return amplitude.getInstance().logEvent('Discourse Launched');}
+        function oktaLaunch() {console.log('Okta Launched'); return amplitude.getInstance().logEvent('Okta Launched');}
+        function exLaunch() {console.log('Expensify Launched'); return amplitude.getInstance().logEvent('Expensify Launched');}
+        function hiLaunch() {console.log('Highspot Launched'); return amplitude.getInstance().logEvent('Highspot Launched');}
+
     </script>
 </html>
