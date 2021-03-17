@@ -66,7 +66,12 @@
             ;e.amplitude=n})(window,document);
 
             amplitude.getInstance().init('d36e125ef5f5b8ffba65a22d2c508a47', null, {
-                includeReferrer: true, includeUtm: true, includeGclid: true, sessionTimeout: 100}, function() {
+                includeReferrer: true, 
+                includeUtm: true, 
+                includeGclid: true, 
+                sessionTimeout: 100,
+                saveParamsReferrerOncePerSession: false
+            }, function() {
                 console.log("Amplitude Init");
         });
         </script>
