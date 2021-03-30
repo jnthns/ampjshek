@@ -298,8 +298,11 @@
     </script>
     <script type="text/javascript">
         // Segment Event Tracking
-        function segmentIdentify() { analytics.track('Home Page Visited', {
+        function segmentIdentify() { 
+            analytics.track('Home Page Visited', {
             title: "Test Event"
-        }) }
+        });
+            console.log("Segment Event Tracked") 
+        };
     </script>
 </html>
