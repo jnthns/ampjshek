@@ -125,8 +125,11 @@
             <div class="container">
                 <div>
                     <h3>Test Event</h3>
-                    <button class="btn btn-success" onclick="testEvent()">
-                        <a href="https://jnthns.github.io/ampjshek?utm_source=one&utm_source=two">Test Event Trigger</a>
+                    <button class="btn btn-light" onclick="logRevenueV2()">
+                        <a href="https://jnthns.github.io/ampjshek">logRevenueV2</a>
+                    </button>
+                    <button class="btn btn-dark" onclick="testEvent()">
+                        <a href="https://jnthns.github.io/ampjshek">Test Event Trigger</a>
                     </button>
                 </div>
                 <div class="text-center">
@@ -288,7 +291,20 @@
     </script>
     <script type="text/javascript">
         // Amplitude Event Tracking
-        function testEvent() {console.log('Test Event Triggered'); return amplitude.getInstance().logEvent('Test Event');}
+        function logRevenueV2() {
+            var revenue = new amplitude.Revenue().setProductId('productId').setPrice(10.99);
+            amplitude.logRevenueV2(revenue);
+            console.log('Log Revenue V2 Triggered'); 
+            return amplitude.getInstance().logEvent('Test Log Revenue V2');
+        }
+
+        function testEvent() {
+            var revenue = new amplitude.Revenue().setProductId('productId').setPrice(10.99);
+            amplitude.logRevenueV2(revenue);
+            console.log('Test Event Triggered'); 
+            return amplitude.getInstance().logEvent('Test Event');
+        }
+
         function sfLaunch() {console.log('Salesforce Launched'); return amplitude.getInstance().logEvent('Salesforce Launched');}
         function gongLaunch() {console.log('Gong Launched'); return amplitude.getInstance().logEvent('Gong Launched');}
         function disLaunch() {console.log('Discourse Launched'); return amplitude.getInstance().logEvent('Discourse Launched');}
