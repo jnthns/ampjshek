@@ -297,7 +297,7 @@
     <script type="text/javascript">
         // Amplitude Event Tracking
         function logRevenueV2() {
-            var revenue = new amplitude.Revenue().setProductId('productId').setPrice(10.99);
+            var revenue = new amplitude.Revenue().setProductId('productId').setPrice(10.99).setQuantity(1);
             amplitude.getInstance().logRevenueV2(revenue);
             console.log('Log Revenue V2 Triggered'); 
             return amplitude.getInstance().logEvent('Test Log Revenue V2');
