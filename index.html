@@ -132,7 +132,7 @@
                     </div><br>
                     <div>
                         <button class="btn btn-dark" onclick="testEvent()">
-                        <a onclick="">Test Event Trigger</a>
+                        <a>Test Event Trigger</a>
                         </button>
                     </div>
                 </div>
@@ -316,8 +316,8 @@
         }
 
         function testEvent() {
-            console.log('Test Event Triggered'); 
-            return amplitude.getInstance().logEvent('Test Event');
+            var revenue = new amplitude.Revenue().setProductId('productId').setPrice(10.99).setQuantity(1);
+            return amplitude.getInstance().logRevenueV2(revenue);
         }
 
         function sfLaunch() {console.log('Salesforce Launched'); return amplitude.getInstance().logEvent('Salesforce Launched');}
