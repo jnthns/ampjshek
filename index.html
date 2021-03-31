@@ -126,8 +126,8 @@
                 <div id='testFunctions'>
                     <h3>Test Event</h3>
                     <div id='logRevenue'>
-                        <button class="btn btn-light" onclick="logRevenueV2()">
-                        <a onclick="success()">logRevenueV2</a>
+                        <button class="btn btn-light" onclick="">
+                        <a href="javascript:logRevenueV2();">logRevenueV2</a>
                         </button>
                     </div><br>
                     <div>
@@ -297,10 +297,11 @@
     <script type="text/javascript">
         // Amplitude Event Tracking
         function logRevenueV2() {
-            var revenue = new amplitude.Revenue().setProductId('productId').setPrice(10.99).setQuantity(1);
-            amplitude.getInstance().logRevenueV2(revenue);
-            console.log('Log Revenue V2 Triggered'); 
-            return amplitude.getInstance().logEvent('Test Log Revenue V2');
+            console.error("Event not set up");
+            // var revenue = new amplitude.Revenue().setProductId('productId').setPrice(10.99).setQuantity(1);
+            // amplitude.getInstance().logRevenueV2(revenue);
+            // console.log('Log Revenue V2 Triggered'); 
+            // return amplitude.getInstance().logEvent('Test Log Revenue V2');
         }
 
         function success() {
@@ -316,8 +317,15 @@
         }
 
         function testEvent() {
-            var revenue = new amplitude.Revenue().setProductId('productId').setPrice(10.99).setQuantity(1);
-            return amplitude.getInstance().logRevenueV2(revenue);
+            console.log("Test Event Triggered")
+            return amplitude.getInstance().logEvent("Test Event Triggered");
+        }
+
+        var logRevenueV2 = function() {
+            var revenue = new amplitude.Revenue().setProductId('productId').setQuantity(1).setPrice(2.99);
+            revenue.setEventProperties({'city': 'San Francisco'});
+            amplitude.logRevenueV2(revenue);
+            console.log('Log Revenue V2 Triggered'); 
         }
 
         function sfLaunch() {console.log('Salesforce Launched'); return amplitude.getInstance().logEvent('Salesforce Launched');}
