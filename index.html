@@ -127,7 +127,7 @@
                     <h3>Test Event</h3>
                     <div id='logRevenue'>
                         <button class="btn btn-light" onclick="">
-                        <a href="javascript:logRevenueV2();">logRevenueV2</a>
+                        <a href="javascript:logRevenueV2();" onclick="success()">logRevenueV2</a>
                         </button>
                     </div><br>
                     <div>
@@ -296,13 +296,6 @@
     </script>
     <script type="text/javascript">
         // Amplitude Event Tracking
-        function logRevenueV2() {
-            var revenue = new amplitude.Revenue().setProductId('productId').setPrice(10.99).setQuantity(1);
-            amplitude.getInstance().logRevenueV2(revenue);
-            console.log('Log Revenue V2 Triggered'); 
-            return amplitude.getInstance().logEvent('Test Log Revenue V2');
-        }
-
         function success() {
             var node = document.getElementById('logRevenue');
             const button = document.querySelector('.btn');
@@ -324,7 +317,8 @@
             var revenue = new amplitude.Revenue().setProductId('productId').setQuantity(1).setPrice(2.99);
             revenue.setEventProperties({'city': 'San Francisco'});
             amplitude.logRevenueV2(revenue);
-            console.log('Log Revenue V2 Triggered'); 
+            console.log('Log Revenue V2 Triggered');
+            return amplitude.getInstance().logEvent('Test Log Revenue V2'); 
         }
 
         function sfLaunch() {console.log('Salesforce Launched'); return amplitude.getInstance().logEvent('Salesforce Launched');}
