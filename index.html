@@ -297,11 +297,10 @@
     <script type="text/javascript">
         // Amplitude Event Tracking
         function logRevenueV2() {
-            console.error("Event not set up");
-            // var revenue = new amplitude.Revenue().setProductId('productId').setPrice(10.99).setQuantity(1);
-            // amplitude.getInstance().logRevenueV2(revenue);
-            // console.log('Log Revenue V2 Triggered'); 
-            // return amplitude.getInstance().logEvent('Test Log Revenue V2');
+            var revenue = new amplitude.Revenue().setProductId('productId').setPrice(10.99).setQuantity(1);
+            amplitude.getInstance().logRevenueV2(revenue);
+            console.log('Log Revenue V2 Triggered'); 
+            return amplitude.getInstance().logEvent('Test Log Revenue V2');
         }
 
         function success() {
@@ -318,7 +317,7 @@
 
         function testEvent() {
             console.log("Test Event Triggered")
-            return amplitude.getInstance().logEvent("Test Event Triggered");
+            return amplitude.getInstance().logEvent("Test Dummy Event");
         }
 
         var logRevenueV2 = function() {
