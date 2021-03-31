@@ -123,15 +123,20 @@
         <!-- Services-->
         <section class="page-section" id="services">
             <div class="container">
-                <div>
+                <div id='testFunctions'>
                     <h3>Test Event</h3>
-                    <button class="btn btn-light" onclick="logRevenueV2()">
-                        <a href="https://jnthns.github.io/ampjshek">logRevenueV2</a>
-                    </button>
-                    <button class="btn btn-dark" onclick="testEvent()">
-                        <a href="https://jnthns.github.io/ampjshek">Test Event Trigger</a>
-                    </button>
+                    <div id='logRevenue'>
+                        <button class="btn btn-light" onclick="logRevenueV2()">
+                        <a onclick="success()">logRevenueV2</a>
+                        </button>
+                    </div><br>
+                    <div>
+                        <button class="btn btn-dark" onclick="testEvent()">
+                        <a onclick="">Test Event Trigger</a>
+                        </button>
+                    </div>
                 </div>
+                <br>
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">Useful Onboarding Resources</h2>
                     <h3 class="section-subheading text-muted"></h3>
@@ -293,14 +298,24 @@
         // Amplitude Event Tracking
         function logRevenueV2() {
             var revenue = new amplitude.Revenue().setProductId('productId').setPrice(10.99);
-            amplitude.logRevenueV2(revenue);
+            amplitude.getInstance().logRevenueV2(revenue);
             console.log('Log Revenue V2 Triggered'); 
             return amplitude.getInstance().logEvent('Test Log Revenue V2');
         }
 
+        function success() {
+            var node = document.getElementById('logRevenue');
+            const button = document.querySelector('.btn');
+
+            button.addEventListener('click', event => {
+                var successMsg = document.createElement('div');
+                successMsg.className = 'alert alert-success';
+                successMsg.innerHTML = 'Success';
+                node.appendChild(successMsg);
+            })
+        }
+
         function testEvent() {
-            var revenue = new amplitude.Revenue().setProductId('productId').setPrice(10.99);
-            amplitude.logRevenueV2(revenue);
             console.log('Test Event Triggered'); 
             return amplitude.getInstance().logEvent('Test Event');
         }
