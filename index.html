@@ -135,6 +135,11 @@
                         <a>Test Event Trigger</a>
                         </button>
                     </div>
+                    <div>
+                        <button class="btn btn-primary" onclick="blockedEvent()">
+                        <a>Blocked Event Trigger</a>
+                        </button>
+                    </div>
                 </div>
                 <br>
                 <div class="text-center">
@@ -313,6 +318,11 @@
             return amplitude.getInstance().logEvent("Test Dummy Event");
         }
 
+        function blockedEvent() {
+            console.log("Blocked Event Triggered")
+            return amplitude.getInstance().logEvent("Blocked Event");
+        }
+
         var logRevenueV2 = function() {
             var revenue = new amplitude.Revenue().setProductId('productId').setQuantity(1).setPrice(2.99);
             revenue.setEventProperties({'city': 'San Francisco'});
@@ -334,7 +344,7 @@
             analytics.track('Home Page Visited', {
             title: "Test Event"
         });
-            console.log("Segment Event Tracked") 
+            console.log("Home Page Visited") 
         };
     </script>
 </html>
