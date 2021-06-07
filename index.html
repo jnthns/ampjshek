@@ -45,7 +45,7 @@
             ;r.type="text/javascript"
             ;r.integrity="sha384-AUydfiSe1Ky1zDY/KCJrSDvNC/Rb1TyoiQ10xfyB/LUYw8GOwJ07SUTa9SxvinL2"
             ;r.crossOrigin="anonymous";r.async=true
-            ;r.src="https://cdn.amplitude.com/libs/amplitude-7.4.1-min.gz.js"
+            ;r.src="https://cdn.amplitude.com/libs/amplitude-8.3.0-min.gz.js"
             ;r.onload=function(){if(!e.amplitude.runQueuedFunctions){
             console.log("[Amplitude] Error: could not load SDK")}}
             ;var i=t.getElementsByTagName("script")[0];i.parentNode.insertBefore(r,i)
@@ -85,7 +85,7 @@
 
         
     </head>
-    <body id="page-top" onload="segmentIdentify()">
+    <body id="page-top" onload="pageview()">
         <!-- Navigation-->
         <nav class="navbar navbar-expand navbar-dark fixed-top" id="mainNav">
             <div class="container">
@@ -134,7 +134,7 @@
                         <button class="btn btn-dark" onclick="testEvent()">
                         <a>Test Event Trigger</a>
                         </button>
-                    </div>
+                    </div><br>
                     <div>
                         <button class="btn btn-primary" onclick="blockedEvent()">
                         <a>Blocked Event Trigger</a>
@@ -311,6 +311,11 @@
                 successMsg.innerHTML = 'Success';
                 node.appendChild(successMsg);
             })
+        }
+
+        function pageview() {
+            console.log("Page View Fired")
+            return amplitude.getInstance().logEvent("Home Page Viewed");
         }
 
         function testEvent() {
