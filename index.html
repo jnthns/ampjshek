@@ -329,11 +329,54 @@
         }
 
         var logRevenueV2 = function() {
-            var revenue = new amplitude.Revenue().setProductId('productId').setQuantity(1).setPrice(2.99);
-            revenue.setEventProperties({'city': 'San Francisco'});
-            amplitude.logRevenueV2(revenue);
-            console.log('Log Revenue V2 Triggered');
-            return amplitude.getInstance().logEvent('Test Log Revenue V2'); 
+            var products = [
+                {
+                  name: "Puffy Lux Mattress",
+                  id: "12Q-puffHB-21",
+                  prdid: 549302042658,
+                  price: 1449,
+                  brand: "Hybrid",
+                  category: "Mattresses",
+                  variant: "Queen  -  (60 x 80 x 12)",
+                  quantity: 1,
+                  coupon: ""
+                },
+                {
+                  name: "Puffy Pillow",
+                  id: "3071395",
+                  prdid: 6552286953506,
+                  price: 0,
+                  brand: "",
+                  category: "Bedding",
+                  variant: "White / Standard -  (20 x 26)",
+                  quantity: 2,
+                  coupon: ""
+                }
+            ]
+
+            products.forEach(function(item) {
+
+                var eventProperties = {
+                  "order id": 123459492,
+                  "total shipping": 0.00,
+                  "total tax": item.price*.085,
+                  "promo code applied": "SAVE",
+                  "item_name": item.name,
+                  "item_sku": item.sku,
+                  "item_prdid": item.prdid,
+                  "item_category": item.category,
+                  "item_variant": item.variant,
+                  "item_quantity": item.quantity,
+                  "item_price": item.price,
+                  "payment_method": "credit card",
+                  "cardType": "visa"
+                }
+
+                amplitude.getInstance().logEvent('Made a Purchase', eventProperties);
+
+              var revenue = new amplitude.Revenue().setProductId(item.prdid.toString()).setPrice(item.price).setQuantity(item.quantity);
+              return amplitude.getInstance().logRevenueV2(revenue);
+            });  
         }
 
         function sfLaunch() {console.log('Salesforce Launched'); return amplitude.getInstance().logEvent('Salesforce Launched');}
