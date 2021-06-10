@@ -367,16 +367,19 @@
                   "item_category": item.category,
                   "item_variant": item.variant,
                   "item_quantity": item.quantity,
-                  "item_price": item.price,
-                  "payment_method": "credit card",
-                  "cardType": "visa"
+                  "item_price": item.price
                 }
 
-                amplitude.getInstance().logEvent('Made a Purchase', eventProperties);
-
-              var revenue = new amplitude.Revenue().setProductId(item.prdid.toString()).setPrice(item.price).setQuantity(item.quantity);
+              var revenue = new amplitude.Revenue().setProductId(item.prdid.toString()).setPrice(item.price).setQuantity(item.quantity).setEventProperties(eventProperties);
               return amplitude.getInstance().logRevenueV2(revenue);
-            });  
+            });
+
+            var orderProperties = {
+                "payment_method": "credit_card",
+                "cardType": "visa"
+            }
+
+            amplitude.getInstance().logEvent('Made a Purchase', orderProperties);  
         }
 
         function sfLaunch() {console.log('Salesforce Launched'); return amplitude.getInstance().logEvent('Salesforce Launched');}
