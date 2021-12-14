@@ -65,7 +65,7 @@
             ;if(!Object.prototype.hasOwnProperty.call(n._iq,e)){n._iq[e]={_q:[]};v(n._iq[e])
             }return n._iq[e]};e.amplitude=n})(window,document);
 
-            amplitude.getInstance().init('d36e125ef5f5b8ffba65a22d2c508a47', null, {
+            amplitude.getInstance().init('d7f12146f8bd3e7c5c0b0d425490e533', null, {
                 apiEndpoint: 'api2.amplitude.com',
                 includeReferrer: true, 
                 includeUtm: true, 
@@ -74,6 +74,8 @@
             }, function() {
                 console.log("Amplitude Init");
         });
+
+            amplitude.getInstance().setUserId("pixiteapps");
         </script>
 
         <!-- SEGMENT SDK -->
@@ -84,7 +86,18 @@
           }}();
         </script>
 
-        
+        <!-- Experiment SDK -->
+        <script src="https://unpkg.com/@amplitude/experiment-js-client@1.3.0/dist/experiment.umd.js"></script>
+        <script>
+           const apiKey = "client-NPrAkkIlyBSSQkMgFiJTno65CUo00aYY";
+           // const config = {} // Any custom configuration (e.g. {debug: true})
+           var experiment = Experiment.Experiment.initialize(apiKey);
+           experiment.setUserProvider(new Experiment.AmplitudeUserProvider(amplitude.getInstance()));
+
+           experiment.fetch();
+           console.log(experiment.fetch())
+       </script>
+
     </head>
     <body id="page-top" onload="pageLoad();">
         <!-- Navigation-->
