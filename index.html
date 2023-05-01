@@ -8,7 +8,7 @@
         <meta name="branch:deeplink:campaign" content="test" />
         <meta name="branch:deeplink:channel" content="sample" />
         <meta name="branch:deeplink:tags" content="test_fallback" />
-        <meta property="branch:deeplink:$ios_deeplink_path" content="https://www.forever21.com/us/shop/catalog/category/f21/women-new-arrivals-clothing">
+        <meta property="branch:deeplink:$ios_deeplink_path">
         <title>Amplitude JShek</title>
         <link rel="icon" type="image/x-icon" href="assets/img/amp-badge.png" />
         <!-- Font Awesome icons (free version)-->
@@ -29,54 +29,12 @@
         <script src="assets/mail/jqBootstrapValidation.js"></script>
         <script src="assets/mail/contact_me.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-        
-        <!-- BRANCH SDK -->
-        <script>
-            (function(b,r,a,n,c,h,_,s,d,k){if(!b[n]||!b[n]._q){for(;s<_.length;)c(h,_[s++]);d=r.createElement(a);d.async=1;d.src="https://cdn.branch.io/branch-latest.min.js";k=r.getElementsByTagName(a)[0];k.parentNode.insertBefore(d,k);b[n]=h}})(window,document,"script","branch",function(b,r){b[r]=function(){b._q.push([r,arguments])}},{_q:[],_v:1},"addListener applyCode autoAppIndex banner closeBanner closeJourney creditHistory credits data deepview deepviewCta first getCode init link logout redeem referrals removeListener sendSMS setBranchViewData setIdentity track validateCode trackCommerceEvent logEvent disableTracking getBrowserFingerprintId crossPlatformIds lastAttributedTouchData setAPIResponseCallback".split(" "), 0);
-
-            branch.init('key_live_boOy006UfmG8sSdAqwNcYmmftyeYrJpc', function(err, data) {
-                console.log(JSON.stringify(data))
-            });
-        </script>
 
         <!-- AMPLITUDE SDK -->
-        <script type="text/javascript">       
-            (function(e,t){var n=e.amplitude||{_q:[],_iq:{}};var r=t.createElement("script")
-            ;r.type="text/javascript"
-            ;r.integrity="sha384-xwN6OCSgIf1SF9jtD6pouaSwCvpobyV3lanBGQ1d33MwTxLarbQxUif0Slt0npCM"
-            ;r.crossOrigin="anonymous";r.async=true
-            ;r.src="https://cdn.amplitude.com/libs/amplitude-8.3.0-min.gz.js"
-            ;r.onload=function(){if(!e.amplitude.runQueuedFunctions){
-            console.log("[Amplitude] Error: could not load SDK")}}
-            ;var i=t.getElementsByTagName("script")[0];i.parentNode.insertBefore(r,i)
-            ;function s(e,t){e.prototype[t]=function(){
-            this._q.push([t].concat(Array.prototype.slice.call(arguments,0)));return this}}
-            var o=function(){this._q=[];return this}
-            ;var a=["add","append","clearAll","prepend","set","setOnce","unset","preInsert","postInsert","remove"]
-            ;for(var c=0;c<a.length;c++){s(o,a[c])}n.Identify=o;var u=function(){this._q=[]
-            ;return this}
-            ;var l=["setProductId","setQuantity","setPrice","setRevenueType","setEventProperties"]
-            ;for(var p=0;p<l.length;p++){s(u,l[p])}n.Revenue=u
-            ;var d=["init","logEvent","logRevenue","setUserId","setUserProperties","setOptOut","setVersionName","setDomain","setDeviceId","enableTracking","setGlobalUserProperties","identify","clearUserProperties","setGroup","logRevenueV2","regenerateDeviceId","groupIdentify","onInit","logEventWithTimestamp","logEventWithGroups","setSessionId","resetSessionId"]
-            ;function v(e){function t(t){e[t]=function(){
-            e._q.push([t].concat(Array.prototype.slice.call(arguments,0)))}}
-            for(var n=0;n<d.length;n++){t(d[n])}}v(n);n.getInstance=function(e){
-            e=(!e||e.length===0?"$default_instance":e).toLowerCase()
-            ;if(!Object.prototype.hasOwnProperty.call(n._iq,e)){n._iq[e]={_q:[]};v(n._iq[e])
-            }return n._iq[e]};e.amplitude=n})(window,document);
-
-            amplitude.getInstance().init('d7f12146f8bd3e7c5c0b0d425490e533', null, {
-                apiEndpoint: 'api2.amplitude.com',
-                includeReferrer: true, 
-                includeUtm: true, 
-                includeGclid: true,
-                saveParamsReferrerOncePerSession: false
-            }, function() {
-                console.log("Amplitude Init");
-        });
-
-            amplitude.getInstance().setUserId("pixiteapps");
+        <script type="text/javascript">
+        !function(){"use strict";!function(e,t){var n=e.amplitude||{_q:[],_iq:{}};if(n.invoked)e.console&&console.error&&console.error("Amplitude snippet has been loaded.");else{var r=function(e,t){e.prototype[t]=function(){return this._q.push({name:t,args:Array.prototype.slice.call(arguments,0)}),this}},s=function(e,t,n){return function(r){e._q.push({name:t,args:Array.prototype.slice.call(n,0),resolve:r})}},o=function(e,t,n){e[t]=function(){if(n)return{promise:new Promise(s(e,t,Array.prototype.slice.call(arguments)))}}},i=function(e){for(var t=0;t<y.length;t++)o(e,y[t],!1);for(var n=0;n<g.length;n++)o(e,g[n],!0)};n.invoked=!0;var a=t.createElement("script");a.type="text/javascript",a.integrity="sha384-TPZhteUkZj8CAyBx+GZZytBdkuKnhKsSKcCoVCq0QSteWf/Kw5Kb9oVFUROLE1l3",a.crossOrigin="anonymous",a.async=!0,a.src="https://cdn.amplitude.com/libs/analytics-browser-1.9.1-min.js.gz",a.onload=function(){e.amplitude.runQueuedFunctions||console.log("[Amplitude] Error: could not load SDK")};var c=t.getElementsByTagName("script")[0];c.parentNode.insertBefore(a,c);for(var u=function(){return this._q=[],this},l=["add","append","clearAll","prepend","set","setOnce","unset","preInsert","postInsert","remove","getUserProperties"],p=0;p<l.length;p++)r(u,l[p]);n.Identify=u;for(var d=function(){return this._q=[],this},f=["getEventProperties","setProductId","setQuantity","setPrice","setRevenue","setRevenueType","setEventProperties"],v=0;v<f.length;v++)r(d,f[v]);n.Revenue=d;var y=["getDeviceId","setDeviceId","getSessionId","setSessionId","getUserId","setUserId","setOptOut","setTransport","reset"],g=["init","add","remove","track","logEvent","identify","groupIdentify","setGroup","revenue","flush"];i(n),n.createInstance=function(e){return n._iq[e]={_q:[]},i(n._iq[e]),n._iq[e]},e.amplitude=n}}(window,document)}();
         </script>
+        <script src="js/index.js"></script>
 
         <!-- SEGMENT SDK -->
         <script>
